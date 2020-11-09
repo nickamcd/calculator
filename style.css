@@ -1,0 +1,14 @@
+#container {
+    width: 500px;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+}
+
+input {
+    height: 50px;
+    width: 400px;
+    text-align: right;
+}
