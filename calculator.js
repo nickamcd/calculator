@@ -12,10 +12,11 @@ const divide = (a, b) => {
 const operate = (operator, a ,b) => operator(a, b);
 
 const populateDisplay = input => {
-    console.log(input);
+    alert(input);
 }
 
 let buttons = document.getElementsByClassName("num");
+
 for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", populateDisplay(buttons[i].textContent));
+    buttons[i].addEventListener("click", console.log("test"));
 }
