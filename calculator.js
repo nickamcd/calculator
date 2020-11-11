@@ -11,11 +11,12 @@ const divide = function(a, b) {
 
 const operate = (operator, a ,b) => operator(a, b);
 
-const populateDisplay = function() {
-    
+const populateDisplay = () => {
+    console.log("test");
 }
 
-let buttons = document.getElementsByClassName("num");
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', console.log("test"));
-}
+let buttons = document.querySelectorAll(".num");
+
+buttons.forEach(button => {
+    button.addEventListener("click", (e) => {populateDisplay()});
+})
