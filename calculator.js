@@ -13,8 +13,6 @@ const operate = (operator, a ,b) => operator(a, b);
 
 const populateDisplay = (input) => {
     console.log(input);
-    let display = document.getElementById("display");
-    display.append(input);
 }
 
 let buttons = document.querySelectorAll(".num");
