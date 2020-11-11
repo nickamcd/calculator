@@ -14,3 +14,8 @@ const operate = (operator, a ,b) => operator(a, b);
 const populateDisplay = function() {
     
 }
+
+let buttons = document.getElementsByClassName("num");
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', console.log("test"));
+}
