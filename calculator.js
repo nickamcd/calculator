@@ -17,6 +17,14 @@ const populateDisplay = input => {
     displayBoard.append(input);
 }
 
+const evaluate = () => {
+    console.log("evaluating...");
+};
+
+const clear = () => {
+    document.getElementById("display").value = "";
+};
+
 let numButtons = document.querySelectorAll(".num");
 
 numButtons.forEach(button => {
@@ -31,4 +39,10 @@ opButtons.forEach(button => {
     button.addEventListener("click", (e) => {
         populateDisplay(button.textContent);
     });
+});
+
+let evalButton = document.querySelector(".eval");
+
+evalButton.addEventListener("click", (e) => {
+    evaluate();
 });
