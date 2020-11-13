@@ -11,16 +11,24 @@ const divide = (a, b) => {
 
 const operate = (operator, a ,b) => operator(a, b);
 
-const populateDisplay = (input) => {
+const populateDisplay = input => {
     console.log(input);
     let displayBoard = document.getElementById("display");
     displayBoard.append(input);
 }
 
-let buttons = document.querySelectorAll(".num");
+let numButtons = document.querySelectorAll(".num");
 
-buttons.forEach(button => {
+numButtons.forEach(button => {
     button.addEventListener("click", (e) => {
         populateDisplay(button.textContent);
     });
-})
+});
+
+let opButtons = document.querySelectorAll(".op");
+
+opButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        populateDisplay(button.textContent);
+    });
+});
