@@ -1,7 +1,7 @@
 // variables for storing values to evaluate
-var value1;
-var value2;
-var operator;
+var value1 = 0;
+var value2 = 0;
+var operator = 0;
 
 // Basic calculator functions
 const add = (a, b) => { return a + b; }
@@ -60,7 +60,7 @@ opButtons.forEach(button => {
     button.addEventListener("click", (e) => {
         document.getElementById("display").textContent;
         populateDisplay(button.textContent);
-        value1 = document.getElementById("display").textContent;
+        value1 = parseInt(document.getElementById("display").textContent.slice(0, -1));
         operator = button.textContent;
         clear();
     });
@@ -70,12 +70,13 @@ let evalButton = document.querySelector(".eval");
 
 evalButton.addEventListener("click", (e) => {
     console.log("evaluating...");
-    value2 = document.getElementById("display").textContent;
+    value2 = parseInt(document.getElementById("display").textContent);
     clear();
     console.log(value1);
     console.log(value2);
     console.log(operator)
-    populateDisplay(operate(operator, value1, value2));
+    let result = operate(operator, value1, value2);
+    populateDisplay(result);
 });
 
 let clearButton = document.querySelector(".clear");
