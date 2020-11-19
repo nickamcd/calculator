@@ -1,22 +1,38 @@
 // variables for storing values to evaluate
-let value1;
-let value2;
-let operand;
+var value1;
+var value2;
+var operator;
 
 // Basic calculator functions
-const add = (a, b) => a + b;
+const add = (a, b) => { return a + b; }
 
-const subtract = (a, b) => a - b;
+const subtract = (a, b) => { return a - b; }
 
-const multiply = (a, b) => a * b;
+const multiply = (a, b) => { return a * b; }
 
 const divide = (a, b) => {
     if (b == 0) return undefined;
     return a / b;
 }
 
-const operate = (operator, a ,b) => operator(a, b);
+const operate = (operator, a ,b) => {
+    switch(operator) {
+        case "+":
+            return add(a, b);
+            break;
+        case "-":
+            return subtract(a, b);
+            break;
+        case "*":
+            return multiply(a, b);
+            break;
+        case "/":
+            return divide(a, b);
+            break;
+    }
+};
 
+// add input from button click to display
 const populateDisplay = input => {
     let displayBoard = document.getElementById("display");
     displayBoard.textContent += input;
@@ -24,6 +40,7 @@ const populateDisplay = input => {
 }
 
 const clear = () => {
+    console.log("clearing...");
     document.getElementById("display").innerHTML = "";
 };
 
@@ -41,12 +58,10 @@ let opButtons = document.querySelectorAll(".op");
 
 opButtons.forEach(button => {
     button.addEventListener("click", (e) => {
-        document.querySelector("display").textContent;
+        document.getElementById("display").textContent;
         populateDisplay(button.textContent);
-        value1 = document.querySelector("display").textContent;
-        operand = button.textContent
-        console.log(value1);
-        console.log(operand);
+        value1 = document.getElementById("display").textContent;
+        operator = button.textContent;
         clear();
     });
 });
@@ -55,8 +70,12 @@ let evalButton = document.querySelector(".eval");
 
 evalButton.addEventListener("click", (e) => {
     console.log("evaluating...");
-    value2 = document.querySelector("display").textContent;
-    console.log(operate(operand, value1, value2));
+    value2 = document.getElementById("display").textContent;
+    clear();
+    console.log(value1);
+    console.log(value2);
+    console.log(operator)
+    populateDisplay(operate(operator, value1, value2));
 });
 
 let clearButton = document.querySelector(".clear");
